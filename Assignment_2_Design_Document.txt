@@ -1,0 +1,57 @@
+Group Number 6
+
+Yash Singh	2022589
+Yogesh Kumar	2022593
+
+Contribution:
+
+    Yash Singh : Defining linked list,Fork Processing for background task and executing shell scripts. print features for different linked lists.
+
+    Yogesh Kumar : Fork Create Function for single and multiple commands , do while loop function and Error handling.
+
+    some task were done by both.
+
+Data Storage:
+
+The code uses three special lists to store information:
+commandHistoryHead keeps track of the commands you've entered.
+detailedHistoryHead stores detailed information about command execution.
+jobsHead manages background jobs you might start.
+
+Command Entry:
+
+When you run the program, it sets up a loop that waits for you to type something. It shows a prompt like "yash&yogesh~$ ".
+You can type a command like "ls" or "ls -l" and press Enter.
+
+Execution Choices:
+
+The shell checks what you typed. If it's a simple command, like "ls," it runs it directly.
+If you end the command with "&" (e.g., "ls &"), it runs in the background, so you can continue using the shell without waiting for it to finish.
+If you use a pipeline with "|" (e.g., "ls | grep file"), it manages multiple commands running together.
+Detailed History:
+
+For every command, the shell records details like when it started, how long it took, and the process ID (PID) in the detailedHistoryHead.
+Shell Script Support (Bonus):
+
+If you enter a command that ends with ".sh" (e.g., "my_script.sh"), it treats it like a shell script and runs it.
+
+Background Jobs:
+
+If you run a command in the background (e.g., "ls &"), it adds the job to the jobsHead list and tells you the job's PID and command.
+Ctrl+C Handling:
+
+If you press Ctrl+C while a command is running, it stops the command and shows you a list of all previous commands' details (from detailedHistoryHead) before exiting.
+
+
+
+
+
+# Commands That Our Shell Cannot Execute #
+
+cd (Change Directory) : this cannot be Execute because our code use execvp to execute the commands  and cd cannot be implemented with Execvp.
+
+alias command : Our shell cannot execute alias command with backlash or quotes.
+
+exit command :  exit command is typically a shell built-in command, and built-in commands are not executed as external programs (execvp) by the shell.
+
+Shell cannot support the movements of arrow keys.
